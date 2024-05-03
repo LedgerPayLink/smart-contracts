@@ -8,10 +8,7 @@ import {HelperConfig} from "./HelperConfig.s.sol";
 contract DeployLedgerPayLink is Script {
     function run() public returns (LedgerPayLink) {
         HelperConfig helperConfig = new HelperConfig();
-        (
-            address payable ledgerPayLinkAddress,
-            uint256 feePer1000
-        ) = helperConfig.activeConfig();
+        (address payable ledgerPayLinkAddress, uint256 feePer1000) = helperConfig.activeConfig();
         return new LedgerPayLink(ledgerPayLinkAddress, feePer1000);
     }
 }
